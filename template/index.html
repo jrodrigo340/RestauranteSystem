@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<!-- lang="pt-BR": avisa ao navegador e aos leitores de tela que a página é em português do Brasil -->
+<html lang="pt-BR">
+<head>
+  <!-- charset UTF-8: faz acentos e "ç" aparecerem corretamente -->
+  <meta charset="UTF-8">
+  <!-- viewport: prepara a página para o celular (o CSS virá depois) -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu - Restaurante Sabor da Casa</title>
+</head>
+<body>
+
+  <!-- CABEÇALHO: título principal (h1 único) + navegação -->
+  <header>
+    <h1>Restaurante Sabor da Casa</h1>
+
+    <!-- NAVEGAÇÃO: igual nas 3 páginas -->
+    <nav>
+      <ul>
+        <!-- aria-current="page" marca a página onde o usuário está -->
+        <li><a href="index.html" aria-current="page">Menu</a></li>
+        <li><a href="cadastro.html">Cadastro</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <!-- Link externo: abre em nova aba, com proteção (rel) -->
+        <li>
+          <a href="https://github.com/USUARIO/REPOSITORIO" target="_blank" rel="noopener noreferrer">GitHub do projeto</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- SECTION 1: o cardápio -->
+    <section>
+      <h2>Cardápio</h2>
+      <img src="img/restaurante.jpg" alt="Mesa de restaurante com pratos servidos e talheres">
+
+      <!-- ENTRADAS -->
+      <h3>Entradas</h3>
+
+      <article>
+        <h4>Bolinho de bacalhau</h4>
+        <p>Bolinhos fritos de bacalhau desfiado com batata.</p>
+        <p>Preço: R$ 28,00</p>
+        <p>Ingredientes: bacalhau, batata, ovo, farinha de trigo, salsinha.</p>
+        <p>Alérgenos: peixe (apenas remover), ovo (pode trocar), glúten (apenas remover).</p>
+      </article>
+
+      <article>
+        <h4>Salada de folhas</h4>
+        <p>Mix de folhas verdes com tomate-cereja e molho de ervas.</p>
+        <p>Preço: R$ 22,00</p>
+        <p>Ingredientes: alface, rúcula, tomate-cereja, azeite, ervas.</p>
+        <p>Alérgenos: nenhum.</p>
+      </article>
+
+      <!-- PRATOS PRINCIPAIS -->
+      <h3>Pratos principais</h3>
+
+      <article>
+        <h4>Moqueca de peixe</h4>
+        <p>Peixe cozido no leite de coco com pimentões.</p>
+        <p>Preço: R$ 48,00</p>
+        <p>Ingredientes: peixe, leite de coco, pimentão, coentro.</p>
+        <p>Alérgenos: peixe (apenas remover), coentro (pode trocar).</p>
+      </article>
+
+      <article>
+        <h4>Macarrão ao molho branco</h4>
+        <p>Massa com molho cremoso de leite e queijo.</p>
+        <p>Preço: R$ 36,00</p>
+        <p>Ingredientes: macarrão, leite, queijo, manteiga, noz-moscada.</p>
+        <p>Alérgenos: glúten (pode trocar), leite (pode trocar).</p>
+      </article>
+
+      <!-- SOBREMESAS -->
+      <h3>Sobremesas</h3>
+
+      <article>
+        <h4>Pudim de leite</h4>
+        <p>Pudim cremoso com calda de caramelo.</p>
+        <p>Preço: R$ 16,00</p>
+        <p>Ingredientes: leite condensado, leite, ovos, açúcar.</p>
+        <p>Alérgenos: leite (apenas remover), ovo (apenas remover).</p>
+      </article>
+
+      <article>
+        <h4>Brigadeiro de colher</h4>
+        <p>Brigadeiro cremoso servido na taça com granulado.</p>
+        <p>Preço: R$ 14,00</p>
+        <p>Ingredientes: leite condensado, chocolate, manteiga, granulado.</p>
+        <p>Alérgenos: leite (pode trocar), amendoim (apenas remover).</p>
+      </article>
+
+      <!-- BEBIDAS -->
+      <h3>Bebidas</h3>
+
+      <article>
+        <h4>Suco de laranja</h4>
+        <p>Suco natural, sem açúcar adicionado.</p>
+        <p>Preço: R$ 9,00</p>
+        <p>Ingredientes: laranja.</p>
+        <p>Alérgenos: nenhum.</p>
+      </article>
+
+      <article>
+        <h4>Vitamina de banana</h4>
+        <p>Banana batida com leite e aveia.</p>
+        <p>Preço: R$ 12,00</p>
+        <p>Ingredientes: banana, leite, aveia.</p>
+        <p>Alérgenos: leite (pode trocar), glúten (apenas remover).</p>
+      </article>
+    </section>
+
+    <!-- SECTION 2: legenda, para entender as indicações de alérgenos -->
+    <section>
+      <h2>Como ler os alérgenos</h2>
+      <table>
+        <caption>Significado das indicações de alérgenos</caption>
+        <thead>
+          <tr>
+            <th scope="col">Indicação</th>
+            <th scope="col">O que significa</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>pode trocar</td>
+            <td>O alérgeno pode ser substituído por outro ingrediente.</td>
+          </tr>
+          <tr>
+            <td>apenas remover</td>
+            <td>O alérgeno só pode ser retirado, sem substituição.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer>
+    <p>&copy; 2026 Restaurante Sabor da Casa</p>
+  </footer>
+
+</body>
+</html>
