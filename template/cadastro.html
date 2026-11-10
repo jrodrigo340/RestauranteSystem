@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de pratos - Restaurante Sabor da Casa</title>
+</head>
+<body>
+
+  <header>
+    <h1>Restaurante Sabor da Casa</h1>
+
+    <!-- Mesma navegação do index.html; aqui o aria-current está em "Cadastro" -->
+    <nav>
+      <ul>
+        <li><a href="index.html">Menu</a></li>
+        <li><a href="cadastro.html" aria-current="page">Cadastro</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li>
+          <a href="https://github.com/USUARIO/REPOSITORIO" target="_blank" rel="noopener noreferrer">GitHub do projeto</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- SECTION 1: título e instruções do formulário -->
+    <section>
+      <h2>Cadastro de prato</h2>
+      <p>Preencha os dados abaixo para adicionar um prato ao cardápio.</p>
+      <p>Os campos com asterisco (*) são obrigatórios.</p>
+      <p>Nesta etapa o formulário ainda não salva os dados. Isso virá com o back-end.</p>
+    </section>
+
+    <!-- SECTION 2: o formulário -->
+    <section>
+      <h2>Dados do prato</h2>
+
+      <form method="post">
+
+        <!-- CAMPO 1: texto curto, obrigatório, com tamanho mínimo e máximo -->
+        <p>
+          <label for="nome">Nome do prato *</label><br>
+          <input type="text" id="nome" name="nome" required minlength="3" maxlength="60">
+        </p>
+
+        <!-- CAMPO 2: texto longo (textarea), obrigatório -->
+        <p>
+          <label for="descricao">Descrição *</label><br>
+          <textarea id="descricao" name="descricao" rows="4" cols="40" required minlength="10" maxlength="200"></textarea>
+        </p>
+
+        <!-- CAMPO 3: número, com valor mínimo e máximo -->
+        <p>
+          <label for="preco">Preço (R$)</label><br>
+          <input type="number" id="preco" name="preco" min="1" max="500" step="0.01">
+        </p>
+
+        <!-- CAMPO 4: lista de opções (select) -->
+        <p>
+          <label for="categoria">Categoria</label><br>
+          <select id="categoria" name="categoria">
+            <option value="">Escolha uma categoria</option>
+            <option value="entradas">Entradas</option>
+            <option value="principais">Pratos principais</option>
+            <option value="sobremesas">Sobremesas</option>
+            <option value="bebidas">Bebidas</option>
+          </select>
+        </p>
+
+        <!-- CAMPO 5: ingredientes (textarea) -->
+        <p>
+          <label for="ingredientes">Ingredientes (separados por vírgula)</label><br>
+          <textarea id="ingredientes" name="ingredientes" rows="3" cols="40" maxlength="200"></textarea>
+        </p>
+
+        <!-- CAMPO 6: alérgenos. Cada um tem um checkbox (contém?) e dois radios (trocar ou remover) -->
+        <fieldset>
+          <legend>Alérgenos presentes</legend>
+          <p>Marque os alérgenos do prato e escolha o que pode ser feito com cada um.</p>
+
+          <fieldset>
+            <legend>Glúten</legend>
+            <input type="checkbox" id="gluten" name="alergenos" value="gluten">
+            <label for="gluten">Contém glúten</label><br>
+            <input type="radio" id="gluten-trocar" name="gluten-acao" value="trocar">
+            <label for="gluten-trocar">Pode trocar</label>
+            <input type="radio" id="gluten-remover" name="gluten-acao" value="remover">
+            <label for="gluten-remover">Apenas remover</label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Leite</legend>
+            <input type="checkbox" id="leite" name="alergenos" value="leite">
+            <label for="leite">Contém leite</label><br>
+            <input type="radio" id="leite-trocar" name="leite-acao" value="trocar">
+            <label for="leite-trocar">Pode trocar</label>
+            <input type="radio" id="leite-remover" name="leite-acao" value="remover">
+            <label for="leite-remover">Apenas remover</label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Ovo</legend>
+            <input type="checkbox" id="ovo" name="alergenos" value="ovo">
+            <label for="ovo">Contém ovo</label><br>
+            <input type="radio" id="ovo-trocar" name="ovo-acao" value="trocar">
+            <label for="ovo-trocar">Pode trocar</label>
+            <input type="radio" id="ovo-remover" name="ovo-acao" value="remover">
+            <label for="ovo-remover">Apenas remover</label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Peixe</legend>
+            <input type="checkbox" id="peixe" name="alergenos" value="peixe">
+            <label for="peixe">Contém peixe</label><br>
+            <input type="radio" id="peixe-trocar" name="peixe-acao" value="trocar">
+            <label for="peixe-trocar">Pode trocar</label>
+            <input type="radio" id="peixe-remover" name="peixe-acao" value="remover">
+            <label for="peixe-remover">Apenas remover</label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Amendoim</legend>
+            <input type="checkbox" id="amendoim" name="alergenos" value="amendoim">
+            <label for="amendoim">Contém amendoim</label><br>
+            <input type="radio" id="amendoim-trocar" name="amendoim-acao" value="trocar">
+            <label for="amendoim-trocar">Pode trocar</label>
+            <input type="radio" id="amendoim-remover" name="amendoim-acao" value="remover">
+            <label for="amendoim-remover">Apenas remover</label>
+          </fieldset>
+        </fieldset>
+
+        <!-- CAMPO 7: imagem do prato -->
+        <p>
+          <label for="imagem">Imagem do prato</label><br>
+          <input type="file" id="imagem" name="imagem" accept="image/*">
+        </p>
+
+        <!-- Botão de envio (ainda não salva nada) -->
+        <p>
+          <button type="submit">Cadastrar prato</button>
+        </p>
+
+      </form>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Restaurante Sabor da Casa - Projeto de curso SENAI</p>
+  </footer>
+
+</body>
+</html>
