@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="navbar-logo">funcionarios</a>
+        <navbar>
+            <a href="cadastro.html">cadastro</a>
+            <a href="sobre.html">sobre</a>
+        </navbar>
+    <main>
+        <h2>Cadastro do Funcionario</h2>
+        <form action="#" method="post">
+            <p><label for="nome">Nome:</label><br>
+                <input type="text" id="nome" name="nome" 
+                    required minlength="2"></p>
+            <p><label for="senha">Senha:</label><br>
+                <input type="password" id="senha" name="senha" 
+                    required minlength="4"></p>
+            <p><label for="telefone">Telefone:</label><br>
+                <input type="tel" id="telefone" name="telefone" 
+                    placeholder="(81) 99999-9999"
+                    required></p>
+            <button type="submit">Cadastrar</button>
+        </form>
+    </main>
+</body>
+</html>
