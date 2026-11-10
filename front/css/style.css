@@ -1,0 +1,487 @@
+/* RestauranteSys: página de apresentação (index) */
+
+:root {
+  --fundo: #0e1512;
+  --card: #16201b;
+  --borda: #2a3830;
+  --borda-forte: #3a4a41;
+  --texto: #f2f5f0;
+  --suave: #b4c0b8;
+  --mudo: #8fa096;
+  --destaque: #c6f432;
+  --destaque-claro: #e2ff8a;
+  --alerta: #ff5a3c;
+  --papel: #f1f3ee;
+  --tinta: #101512;
+  --fonte-texto: Inter, system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  --fonte-titulo: "Space Grotesk", var(--fonte-texto);
+  --fonte-mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+}
+
+* { 
+  box-sizing: border-box; 
+}
+
+html { 
+  scroll-behavior: smooth; 
+  scroll-padding-top: 1rem; 
+}
+
+body {
+  margin: 0;
+  background: var(--fundo);
+  color: var(--texto);
+  font-family: var(--fonte-texto);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  margin: 0;
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+}
+
+p { 
+  margin: 0; 
+}
+
+ul { 
+  margin: 0; 
+  padding: 0; 
+  list-style: none; 
+}
+
+a { 
+  color: var(--destaque); 
+}
+
+a:hover { 
+  color: var(--destaque-claro); 
+}
+
+a:focus-visible, 
+.btn:focus-visible {
+  outline: 3px solid var(--destaque);
+  outline-offset: 3px;
+}
+
+.wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.pular {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  padding: 0.75rem 1rem;
+  background: var(--destaque);
+  color: var(--tinta);
+  border-radius: 8px;
+  z-index: 10;
+}
+
+.pular:focus { 
+  top: 1rem; 
+}
+
+/* Barra do topo */
+.barra {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--texto);
+  font: 700 1.375rem var(--fonte-titulo);
+  text-decoration: none;
+}
+
+.logo:hover { 
+  color: var(--texto); 
+}
+
+.logo__fundo { 
+  fill: var(--destaque); 
+}
+
+.logo__traco { 
+  stroke: var(--fundo); 
+  stroke-width: 2.5; 
+  stroke-linecap: round; 
+  fill: none; 
+}
+
+.nav { 
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 1.75rem; 
+  font-size: 1rem; 
+}
+
+.nav a { 
+  color: var(--suave); 
+  text-decoration: none; 
+}
+
+.nav a:hover, 
+.nav a.ativo { 
+  color: var(--texto); 
+}
+
+.nav a.ativo { 
+  text-decoration: underline; 
+  text-decoration-color: var(--destaque); 
+  text-underline-offset: 6px; 
+}
+
+/* Botões */
+.btn {
+  display: inline-block;
+  min-height: 44px;
+  padding: 0.95rem 1.5rem;
+  border-radius: 999px;
+  font: 500 1rem/1.2 var(--fonte-texto);
+  text-decoration: none;
+}
+
+.btn--principal { 
+  background: var(--destaque); 
+  color: var(--tinta); 
+}
+
+.btn--principal:hover { 
+  background: var(--destaque-claro); 
+  color: var(--tinta); 
+}
+
+.btn--contorno { 
+  border: 1px solid var(--borda-forte); 
+  color: var(--texto); 
+}
+
+.btn--contorno:hover { 
+  border-color: var(--texto); 
+  color: var(--texto); 
+}
+
+/* Textos de apoio */
+.rotulo {
+  margin-bottom: 0.75rem;
+  color: var(--destaque);
+  font: 500 0.875rem var(--fonte-mono);
+  letter-spacing: 0.12em;
+}
+
+/* Hero */
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 3.5rem;
+  padding-top: 3.5rem;
+  padding-bottom: 6.5rem;
+}
+
+.hero__texto { 
+  flex: 1 1 460px; 
+  min-width: 0; 
+}
+
+.hero__texto .rotulo { 
+  margin-bottom: 1.25rem; 
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 6vw, 4.75rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+}
+
+.hero__sub { 
+  margin-top: 1.5rem; 
+  max-width: 520px; 
+  color: var(--suave); 
+  font-size: 1.1875rem; 
+}
+
+.hero__acoes { 
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 0.75rem; 
+  margin-top: 2.25rem; 
+}
+
+.numeros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.25rem;
+  margin-top: 3.25rem;
+  color: var(--suave);
+  font: 500 0.8125rem var(--fonte-mono);
+}
+
+.numeros b { 
+  display: block; 
+  color: var(--texto); 
+  font-size: 1.875rem; 
+}
+
+/* Comanda (cupom) */
+.hero__cupom { 
+  flex: 1 1 340px; 
+  display: flex; 
+  justify-content: center; 
+}
+
+.cupom {
+  width: 100%;
+  max-width: 380px;
+  padding: 1.75rem 1.625rem 1.375rem;
+  background: var(--papel);
+  color: var(--tinta);
+  border-radius: 6px;
+  font: 500 0.875rem/1.55 var(--fonte-mono);
+  transform: rotate(2.5deg);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+}
+
+.cupom__topo { 
+  display: flex; 
+  justify-content: space-between; 
+  font-weight: 700; 
+}
+
+.cupom__estado {
+  display: inline-block;
+  margin: 0.625rem 0 1rem;
+  padding: 0.1875rem 0.625rem;
+  background: var(--tinta);
+  color: var(--destaque);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+}
+
+.cupom__itens { 
+  padding-top: 0.75rem; 
+  border-top: 1px dashed var(--tinta); 
+}
+
+.cupom__obs { 
+  padding-left: 1.25rem; 
+  color: #4a554f; 
+}
+
+.cupom__item { 
+  margin-top: 0.5rem; 
+}
+
+.cupom__alergia {
+  margin: 1.125rem 0;
+  padding: 0.625rem 0.75rem;
+  background: var(--alerta);
+  color: #1a0b07;
+  font-weight: 700;
+}
+
+.cupom__alergia span { 
+  font-weight: 500; 
+}
+
+.cupom__total {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 0.75rem;
+  border-top: 1px dashed var(--tinta);
+  font-weight: 700;
+}
+
+/* Seções */
+.secao { 
+  padding-bottom: 6rem; 
+}
+
+.secao h2 { 
+  max-width: 720px; 
+  font-size: clamp(2rem, 4vw, 3rem); 
+  line-height: 1.1; 
+}
+
+#como { 
+  padding-top: 2.5rem; 
+}
+
+.grade {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+  margin-top: 3rem;
+}
+
+.card {
+  padding: 1.75rem;
+  background: var(--card);
+  border: 1px solid var(--borda);
+  border-radius: 16px;
+}
+
+.card h3 { 
+  margin: 0.875rem 0 0.5rem; 
+  font-size: 1.375rem; 
+}
+
+.card .card__titulo { 
+  margin-top: 0; 
+  font-size: 1.5rem; 
+}
+
+.card p { 
+  color: var(--suave); 
+  font-size: 1rem; 
+}
+
+.passo { 
+  color: var(--destaque); 
+  font: 500 0.9375rem var(--fonte-mono); 
+}
+
+/* Bloco de alergias */
+.destaque {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 3rem;
+  padding: 3.5rem;
+  background: var(--destaque);
+  color: var(--fundo);
+  border-radius: 28px;
+}
+
+.destaque__texto { 
+  flex: 1 1 360px; 
+  min-width: 0; 
+}
+
+.secao .destaque h2 { 
+  font-size: clamp(2.125rem, 4.5vw, 3.375rem); 
+  line-height: 1.05; 
+}
+
+.destaque__texto p { 
+  max-width: 460px; 
+  margin-top: 1.25rem; 
+}
+
+.checks { 
+  flex: 1 1 360px; 
+  display: flex; 
+  flex-direction: column; 
+  gap: 1.125rem; 
+  min-width: 0; 
+}
+
+.checks li { 
+  display: flex; 
+  align-items: flex-start; 
+  gap: 0.875rem; 
+  font-size: 1.1875rem; 
+  font-weight: 500; 
+}
+
+.checks svg { 
+  flex: none; 
+}
+
+.check__fundo { 
+  fill: var(--fundo); 
+}
+
+.check__traco { 
+  stroke: var(--destaque); 
+  stroke-width: 2.4; 
+  fill: none; 
+  stroke-linecap: round; 
+  stroke-linejoin: round; 
+}
+
+/* Para o dono */
+.chips { 
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 0.75rem; 
+  margin-top: 2.25rem; 
+}
+
+.chips li {
+  padding: 0.625rem 1.125rem;
+  border: 1px solid var(--borda-forte);
+  border-radius: 999px;
+  font: 500 0.875rem var(--fonte-mono);
+}
+
+.tecnologia { 
+  margin-top: 2.25rem; 
+  color: var(--mudo); 
+  font: 500 0.8125rem var(--fonte-mono); 
+}
+
+/* Chamada final */
+.chamada { 
+  padding-bottom: 6rem; 
+  text-align: center; 
+}
+
+.chamada h2 { 
+  max-width: 760px; 
+  margin: 0 auto 2.25rem; 
+  font-size: clamp(2.125rem, 5vw, 3.75rem); 
+  line-height: 1.05; 
+}
+
+/* Rodapé */
+.rodape {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding-top: 1.75rem;
+  padding-bottom: 2.5rem;
+  border-top: 1px solid var(--borda);
+  color: var(--mudo);
+  font-size: 0.875rem;
+}
+
+/* Telas pequenas */
+@media (max-width: 640px) {
+  .wrap { 
+    padding-left: 1.25rem; 
+    padding-right: 1.25rem; 
+  }
+  .hero { 
+    padding-bottom: 4rem; 
+  }
+  .destaque { 
+    padding: 2rem 1.5rem; 
+    border-radius: 20px; 
+  }
+  .secao, .chamada { 
+    padding-bottom: 4rem; 
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { 
+    scroll-behavior: auto; 
+  }
+}
