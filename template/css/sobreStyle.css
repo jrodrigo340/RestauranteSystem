@@ -1,0 +1,185 @@
+/* --- RESET E CONFIGURAÇÕES GLOBAIS --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f7f9f6; /* Tom leve e acolhedor (Off-white esverdeado) */
+  color: #2c3e35;            /* Texto em verde escuro suave */
+  line-height: 1.6;
+}
+
+/* --- CABEÇALHO (HEADER & NAV) --- */
+header {
+  background: linear-gradient(135deg, #1b3b2b 0%, #0d1e15 100%); /* Verde natalino profundo */
+  color: #fcf8f2;
+  padding: 2rem 1rem;
+  text-align: center;
+  border-bottom: 4px solid #d4af37; /* Linha de destaque dourada */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+header h1 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  color: #f3e5ab; /* Dourado claro suave */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+  letter-spacing: 1px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+nav a {
+  color: #e6dfcc;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+nav a:hover,
+nav a[aria-current="page"] {
+  background-color: #d4af37; /* Dourado */
+  color: #1b3b2b;           /* Texto escuro no fundo dourado */
+  border-color: #f3e5ab;
+  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.4);
+}
+
+/* --- CONTEÚDO PRINCIPAL (MAIN) --- */
+main {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+section {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 6px 18px rgba(27, 59, 43, 0.06);
+  border-top: 4px solid #d4af37; /* Detalhe dourado no topo de cada seção */
+}
+
+section h2 {
+  color: #1b3b2b;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  position: relative;
+  padding-bottom: 8px;
+}
+
+/* Pequeno detalhe decorativo abaixo do título da seção */
+section h2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 50px;
+  height: 3px;
+  background-color: #d4af37;
+  border-radius: 2px;
+}
+
+section p {
+  margin-bottom: 15px;
+  color: #4a5c53;
+  font-size: 1.05rem;
+}
+
+/* --- IMAGEM DA HISTÓRIA --- */
+section img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-top: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  border: 2px solid #f0e6d2;
+}
+
+/* --- TABELA DA EQUIPE --- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+caption {
+  font-size: 0.95rem;
+  color: #6c7d73;
+  margin-bottom: 10px;
+  text-align: left;
+  font-style: italic;
+}
+
+th, td {
+  padding: 14px 18px;
+  text-align: left;
+}
+
+thead {
+  background-color: #1b3b2b;
+  color: #f3e5ab;
+}
+
+th {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+tbody tr {
+  border-bottom: 1px solid #edf2ec;
+  transition: background-color 0.2s;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #fdfbf7; /* Tom levemente aquecido alternado */
+}
+
+tbody tr:hover {
+  background-color: #f4efdf; /* Dourado bem suave ao passar o mouse */
+}
+
+/* --- RODAPÉ --- */
+footer {
+  background-color: #142b1f;
+  color: #d1dcd5;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+  border-top: 2px solid #d4af37;
+  margin-top: 60px;
+}
+
+/* --- RESPONSIVIDADE PARA CELULARES --- */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1.8rem;
+  }
+  
+  nav ul {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  section {
+    padding: 20px;
+  }
+}
