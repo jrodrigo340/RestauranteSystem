@@ -1,0 +1,194 @@
+/* ==========================================
+   VARIÁVEIS E CONFIGURAÇÕES GLOBAIS
+   ========================================== */
+:root {
+  --vermelho-natal: #8b0000;      /* Vermelho escuro/vinho elegante */
+  --vermelho-vivo: #c41e3a;       /* Vermelho Natal clássico */
+  --verde-pinheiro: #1b4d3e;      /* Verde suave de pinheiro */
+  --dourado: #d4af37;             /* Dourado para detalhes */
+  --branco-neve: #faf9f6;         /* Fundo levemente off-white */
+  --cinza-escuro: #2c2c2c;        /* Texto principal */
+  --cinza-claro: #f0ede6;         /* Fundo de cards */
+  --sombra-suave: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --transicao: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--branco-neve);
+  color: var(--cinza-escuro);
+  line-height: 1.6;
+}
+
+/* ==========================================
+   CABEÇALHO E NAVEGAÇÃO
+   ========================================== */
+header {
+  background: linear-gradient(135deg, var(--vermelho-natal), var(--vermelho-vivo));
+  color: #fff;
+  padding: 2rem 1rem;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(255, 110, 236, 0.514);
+  border-bottom: 4px solid var(--dourado);
+}
+
+header h1 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.15);
+  transition: var(--transicao);
+  font-weight: 500;
+}
+
+nav a:hover,
+nav a[aria-current="page"] {
+  background-color: var(--dourado);
+  color: #1a1a1a;
+  transform: translateY(-2px);
+}
+
+/* ==========================================
+   ESTRUTURA PRINCIPAL (<main>)
+   ========================================== */
+main {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+section {
+  background: #fff;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--sombra-suave);
+  border-top: 4px solid var(--verde-pinheiro);
+}
+
+h2 {
+  color: var(--vermelho-vivo);
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Imagem principal do cardápio */
+section > img {
+  width: 100%;
+  max-height: 350px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  box-shadow: var(--sombra-suave);
+}
+
+h3 {
+  color: var(--verde-pinheiro);
+  font-size: 1.3rem;
+  margin: 1.5rem 0 1rem 0;
+  border-bottom: 2px solid var(--cinza-claro);
+  padding-bottom: 0.3rem;
+}
+
+/* ==========================================
+   ITENS DO CARDÁPIO (<article>)
+   ========================================== */
+article {
+  background-color: var(--cinza-claro);
+  border-left: 4px solid var(--vermelho-vivo);
+  padding: 1rem 1.2rem;
+  margin-bottom: 1rem;
+  border-radius: 0 8px 8px 0;
+  transition: var(--transicao);
+}
+
+article:hover {
+  transform: translateX(4px);
+  background-color: #eae5dc;
+}
+
+article h4 {
+  color: var(--vermelho-natal);
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+}
+
+article p {
+  font-size: 0.95rem;
+  margin-bottom: 0.2rem;
+}
+
+/* Destacando o preço */
+article p:nth-of-type(2) {
+  font-weight: bold;
+  color: var(--verde-pinheiro);
+  font-size: 1.05rem;
+}
+
+/* ==========================================
+   TABELA DE ALÉRGENOS
+   ========================================== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--sombra-suave);
+}
+
+caption {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: var(--cinza-escuro);
+}
+
+th, td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--cinza-claro);
+}
+
+th {
+  background-color: var(--verde-pinheiro);
+  color: #fff;
+}
+
+tr:hover {
+  background-color: var(--cinza-claro);
+}
+
+/* ==========================================
+   RODAPÉ
+   ========================================== */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  background-color: var(--verde-pinheiro);
+  color: #fff;
+  font-size: 0.9rem;
+  border-top: 3px solid var(--dourado);
+}
