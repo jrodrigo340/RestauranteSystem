@@ -1,0 +1,221 @@
+:root {
+  --vermelho-natal: #8b0000;      /* Vermelho escuro/vinho elegante */
+  --vermelho-vivo: #c41e3a;       /* Vermelho Natal clássico */
+  --verde-pinheiro: #1b4d3e;      /* Verde suave de pinheiro */
+  --dourado: #d4af37;             /* Dourado para detalhes */
+  --branco-neve: #faf9f6;         /* Fundo levemente off-white */
+  --cinza-escuro: #2c2c2c;        /* Texto principal */
+  --cinza-claro: #f0ede6;         /* Fundo de cards */
+  --sombra-suave: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --transicao: all 0.3s ease;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--branco-neve);
+  color: var(--cinza-escuro);
+  line-height: 1.6;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+header {
+  background: linear-gradient(135deg, var(--vermelho-natal), var(--vermelho-vivo));
+  color: #fff;
+  padding: 2rem 1rem;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(255, 110, 236, 0.514);
+  border-bottom: 4px solid var(--dourado);
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.15);
+  transition: var(--transicao);
+  font-weight: 500;
+}
+
+nav a:hover,
+nav a[aria-current="page"] {
+  background-color: var(--dourado);
+  color: #1a1a1a;
+  transform: translateY(-2px);
+}
+header h1 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+/* ==========================================
+   ESTRUTURA PRINCIPAL (<main>)
+   ========================================== */
+main {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+section {
+  background: #fff;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--sombra-suave);
+  border-top: 4px solid var(--verde-pinheiro);
+}
+
+h2 {
+  color: var(--vermelho-vivo);
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* ==========================================
+   FORMULÁRIOS E CAMPOS DE ENTRADA (<form>)
+   ========================================== */
+form p {
+  margin-bottom: 1.2rem;
+}
+
+label {
+  font-weight: 600;
+  color: var(--cinza-escuro);
+  display: inline-block;
+  margin-bottom: 0.4rem;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="file"],
+textarea,
+select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: inherit;
+  background-color: #fff;
+  transition: var(--transicao);
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--verde-pinheiro);
+  box-shadow: 0 0 0 3px rgba(27, 67, 50, 0.2);
+}
+
+textarea {
+  resize: vertical;
+}
+
+input[type="file"] {
+  background-color: var(--cinza-claro);
+  border: 1px dashed var(--verde-pinheiro);
+  cursor: pointer;
+}
+
+/* ==========================================
+   AGRUPAMENTO DE ALÉRGENOS (<fieldset>)
+   ========================================== */
+fieldset {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1.2rem;
+  margin-bottom: 1.5rem;
+  background-color: #fff;
+}
+
+legend {
+  font-weight: bold;
+  color: var(--verde-pinheiro);
+  padding: 0 0.5rem;
+  font-size: 1.1rem;
+}
+
+/* Fieldsets internos para cada alérgeno */
+fieldset fieldset {
+  background-color: var(--cinza-claro);
+  border: none;
+  border-left: 4px solid var(--vermelho-vivo);
+  border-radius: 0 6px 6px 0;
+  padding: 0.8rem 1rem;
+  margin-top: 1rem;
+  margin-bottom: 0.8rem;
+  transition: var(--transicao);
+}
+
+fieldset fieldset:hover {
+  background-color: #eae5dc;
+}
+
+fieldset fieldset legend {
+  color: var(--vermelho-natal);
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0;
+}
+
+fieldset fieldset input[type="checkbox"],
+fieldset fieldset input[type="radio"] {
+  margin-right: 0.3rem;
+  accent-color: var(--verde-pinheiro);
+  cursor: pointer;
+}
+
+fieldset fieldset label {
+  font-weight: normal;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+/* ==========================================
+   BOTÃO DE SUBMISSÃO (<button>)
+   ========================================== */
+button[type="submit"] {
+  width: 100%;
+  background-color: var(--verde-pinheiro);
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding: 0.9rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: var(--transicao);
+  box-shadow: var(--sombra-suave);
+}
+
+button[type="submit"]:hover {
+  background-color: var(--vermelho-vivo);
+  transform: translateY(-2px);
+}
+
+/* ==========================================
+   RODAPÉ (<footer>)
+   ========================================== */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  background-color: var(--verde-pinheiro);
+  color: #fff;
+  font-size: 0.9rem;
+  border-top: 3px solid var(--dourado);
+}
