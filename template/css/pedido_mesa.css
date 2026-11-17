@@ -1,0 +1,95 @@
+/* ==========================================
+   VARIÁVEIS E CONFIGURAÇÕES GLOBAIS
+   ========================================== */
+:root {
+  --vermelho-natal: #8b0000;      /* Vermelho escuro/vinho elegante */
+  --vermelho-vivo: #c41e3a;       /* Vermelho Natal clássico */
+  --verde-pinheiro: #1b4d3e;      /* Verde suave de pinheiro */
+  --dourado: #d4af37;             /* Dourado para detalhes */
+  --branco-neve: #faf9f6;         /* Fundo levemente off-white */
+  --cinza-escuro: #2c2c2c;        /* Texto principal */
+  --cinza-claro: #f0ede6;         /* Fundo de cards */
+  --sombra-suave: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --transicao: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--branco-neve);
+  color: var(--cinza-escuro);
+  line-height: 1.6;
+}
+
+/* ==========================================
+   CABEÇALHO E NAVEGAÇÃO
+   ========================================== */
+header {
+  background: linear-gradient(135deg, var(--vermelho-natal), var(--vermelho-vivo));
+  color: #fff;
+  padding: 2rem 1rem;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(255, 110, 236, 0.514);
+  border-bottom: 4px solid var(--dourado);
+}
+
+header h1 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.15);
+  transition: var(--transicao);
+  font-weight: 500;
+}
+
+nav a:hover,
+nav a[aria-current="page"] {
+  background-color: var(--dourado);
+  color: #1a1a1a;
+  transform: translateY(-2px);
+}
+footer {
+  background-color: #142b1f;
+  color: #d1dcd5;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+  border-top: 2px solid #d4af37;
+  margin-top: 60px;
+}
+
+/* --- RESPONSIVIDADE PARA CELULARES --- */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1.8rem;
+  }
+  
+  nav ul {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  section {
+    padding: 20px;
+  }
+}

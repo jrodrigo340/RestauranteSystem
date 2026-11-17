@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/pedido_mesa.css">
+</head>
+<body>
+    <header>
+    <h1>Restaurante Sabor da Casa</h1>
+
+    <!-- NAVEGAÇÃO: igual nas 3 páginas -->
+    <nav>
+      <ul>
+        <!-- aria-current="page" marca a página onde o usuário está -->
+        <li><a href="index.html" aria-current="page">Menu</a></li>
+        <li><a href="cadastro.html">Cadastro</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <!-- Link externo: abre em nova aba, com proteção (rel) -->
+        <li>
+          <a href="https://github.com/USUARIO/REPOSITORIO" target="_blank" rel="noopener noreferrer">GitHub do projeto</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <h2>Pedido da mesa</h2>
+    <p>Itens do pedido:</p>
+    <ul id="pedido-lista">
+      <!-- Os itens do pedido serão adicionados aqui via JavaScript -->
+    </ul>
+    <div class="resumo">
+    <p>Itens no pedido: <strong id="qtd">0</strong></p>
+    <p>Subtotal: <strong id="subtotal">R$ 0,00</strong></p>
+    <p>Desconto: <strong id="desconto">R$ 0,00</strong></p>
+    <p>Total: <strong id="total">R$ 0,00</strong></p>
+  </div>
+  </main>
+  <footer>
+    <p>&copy; 2026 Restaurante Sabor da Casa</p>
+  </footer>
+</body>
+</html>
