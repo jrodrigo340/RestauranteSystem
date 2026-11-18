@@ -1,44 +1,105 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/pedido_mesa.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pedido da Mesa - Restaurante Sabor da Casa</title>
+  <link rel="stylesheet" href="css/indexStyle.css">
 </head>
 <body>
-    <header>
-    <h1>Restaurante Sabor da Casa</h1>
 
-    <!-- NAVEGAÇÃO: igual nas 3 páginas -->
+  <header>
+    <h1>Restaurante Sabor da Casa</h1>
     <nav>
       <ul>
-        <!-- aria-current="page" marca a página onde o usuário está -->
-        <li><a href="index.html" aria-current="page">Menu</a></li>
+        <li><a href="index.html">Menu</a></li>
+        <li><a href="pedido_mesa.html" aria-current="page">Pedido da Mesa</a></li>
         <li><a href="cadastro.html">Cadastro</a></li>
         <li><a href="sobre.html">Sobre</a></li>
-        <!-- Link externo: abre em nova aba, com proteção (rel) -->
-        <li>
-          <a href="https://github.com/USUARIO/REPOSITORIO" target="_blank" rel="noopener noreferrer">GitHub do projeto</a>
-        </li>
       </ul>
     </nav>
   </header>
+
   <main>
-    <h2>Pedido da mesa</h2>
-    <p>Itens do pedido:</p>
-    <ul id="pedido-lista">
-      <!-- Os itens do pedido serão adicionados aqui via JavaScript -->
-    </ul>
-    <div class="resumo">
-    <p>Itens no pedido: <strong id="qtd">0</strong></p>
-    <p>Subtotal: <strong id="subtotal">R$ 0,00</strong></p>
-    <p>Desconto: <strong id="desconto">R$ 0,00</strong></p>
-    <p>Total: <strong id="total">R$ 0,00</strong></p>
-  </div>
+    <section>
+      <h2>Resumo do Pedido da Mesa</h2>
+
+      <table>
+        <caption>Itens solicitados</caption>
+        <thead>
+          <tr>
+            <th scope="col">Produto</th>
+            <th scope="col">Quantidade</th>
+            <th scope="col">Valor Unitário</th>
+            <th scope="col">Subtotal</th>
+          </tr>
+        </thead>
+        <tbody id="lista-pedidos">
+          <!-- Os itens serão inseridos aqui pelo JavaScript -->
+        </tbody>
+        <tfoot>
+          <tr>
+            <th scope="row" colspan="3">Valor Total do Pedido</th>
+            <td id="valor-total"><strong>R$ 0,00</strong></td>
+          </tr>
+        </tfoot>
+      </table>
+
+      <br>
+      <a href="index.html">Voltar ao cardápio</a>
+      <button type="button" id="btn-limpar">Limpar pedido</button>
+    </section>
   </main>
+
   <footer>
     <p>&copy; 2026 Restaurante Sabor da Casa</p>
   </footer>
+
+  <script>
+    const listaPedidos = document.getElementById('lista-pedidos');
+    const campoTotal = document.getElementById('valor-total');
+    const btnLimpar = document.getElementById('btn-limpar');
+
+    function formatarMoeda(valor) {
+      return valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    }
+
+    function carregarPedidos() {
+      const pedidos = JSON.parse(localStorage.getItem('pedidoMesa')) || [];
+      listaPedidos.innerHTML = '';
+
+      if (pedidos.length === 0) {
+        listaPedidos.innerHTML = '<tr><td colspan="4">Nenhum pedido registrado para esta mesa.</td></tr>';
+        campoTotal.innerHTML = '<strong>R$ 0,00</strong>';
+        return;
+      }
+
+      let totalGeral = 0;
+
+      pedidos.forEach((item) => {
+        const subtotal = item.preco * item.quantidade;
+        totalGeral += subtotal;
+
+        const linha = document.createElement('tr');
+        linha.innerHTML = `
+          <td>${item.nome}</td>
+          <td>${item.quantidade}</td>
+          <td>${formatarMoeda(item.preco)}</td>
+          <td>${formatarMoeda(subtotal)}</td>
+        `;
+        listaPedidos.appendChild(linha);
+      });
+
+      campoTotal.innerHTML = `<strong>${formatarMoeda(totalGeral)}</strong>`;
+    }
+
+    btnLimpar.addEventListener('click', () => {
+      localStorage.removeItem('pedidoMesa');
+      carregarPedidos();
+    });
+
+    carregarPedidos();
+  </script>
+
 </body>
 </html>
