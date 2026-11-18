@@ -1,30 +1,25 @@
 <!DOCTYPE html>
-<!-- lang="pt-BR": avisa ao navegador e aos leitores de tela que a página é em português do Brasil -->
 <html lang="pt-BR">
 <head>
-  <!-- charset UTF-8: faz acentos e "ç" aparecerem corretamente -->
   <meta charset="UTF-8">
-  <!-- viewport: prepara a página para o celular (o CSS virá depois) -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Menu - Restaurante Sabor da Casa</title>
   <link rel="stylesheet" href="css/indexStyle.css">
 </head>
 <body>
 
-  <!-- CABEÇALHO: título principal (h1 único) + navegação -->
   <header>
     <h1>Restaurante Sabor da Casa</h1>
 
-    <!-- NAVEGAÇÃO: igual nas 3 páginas -->
     <nav>
       <ul>
-        <!-- aria-current="page" marca a página onde o usuário está -->
         <li><a href="index.html" aria-current="page">Menu</a></li>
         <li><a href="pedido_mesa.html">Pedido da Mesa</a></li>
         <li><a href="cadastro.html">Cadastro</a></li>
         <li><a href="sobre.html">Sobre</a></li>
-        <!-- Link externo: abre em nova aba, com proteção (rel) -->
-       
+        <li>
+          <a href="https://github.com/jrodrigo340/RestauranteSystem" target="_blank" rel="noopener noreferrer">GitHub do projeto</a>
+        </li>
       </ul>
     </nav>
   </header>
@@ -156,79 +151,11 @@
 
   </main>
 
-  <!-- RODAPÉ -->
   <footer>
     <p>&copy; 2026 Restaurante Sabor da Casa</p>
-    <li>
-      <a href="https://github.com/USUARIO/REPOSITORIO" target="_blank" rel="noopener noreferrer">GitHub do projeto</a>
-    </li>
   </footer>
 
-  <!-- SCRIPT PARA GERENCIAR O PEDIDO E ENVIAR PARA produto_mesa.html -->
-  <script>
-    // Recupera pedidos já salvos anteriormente ou inicia uma lista vazia
-    let pedidos = JSON.parse(localStorage.getItem('pedidoMesa')) || [];
-
-    const botoesAdicionar = document.querySelectorAll('article button');
-    const statusPedido = document.getElementById('status-pedido');
-    const btnEnviarMesa = document.getElementById('btn-enviar-mesa');
-
-    // Formata números para o padrão monetário brasileiro (ex: 28 -> R$ 28,00)
-    function formatarMoeda(valor) {
-      return valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-    }
-
-    // Atualiza o texto de resumo na tela e salva no localStorage
-    function atualizarResumo() {
-      const totalItens = pedidos.reduce((soma, item) => soma + item.quantidade, 0);
-      const valorTotal = pedidos.reduce((soma, item) => soma + (item.preco * item.quantidade), 0);
-
-      statusPedido.textContent = `Itens selecionados: ${totalItens} | Total: ${formatarMoeda(valorTotal)}`;
-      localStorage.setItem('pedidoMesa', JSON.stringify(pedidos));
-    }
-
-    // Adiciona evento de clique em cada botão "Adicionar ao pedido"
-    botoesAdicionar.forEach((botao) => {
-      botao.addEventListener('click', () => {
-        const artigo = botao.closest('article');
-        const nome = artigo.querySelector('h4').textContent.trim();
-
-        // Extrai o valor numérico de "Preço: R$ XX,XX"
-        const matchPreco = artigo.textContent.match(/R\$\s*([\d.,]+)/);
-        const preco = matchPreco ? parseFloat(matchPreco[1].replace('.', '').replace(',', '.')) : 0;
-
-        // Verifica se o item já está na lista para apenas aumentar a quantidade
-        const itemExistente = pedidos.find((item) => item.nome === nome);
-        if (itemExistente) {
-          itemExistente.quantidade += 1;
-        } else {
-          pedidos.push({ nome, preco, quantidade: 1 });
-        }
-
-        atualizarResumo();
-
-        // Retorno visual rápido no botão
-        const textoOriginal = botao.textContent;
-        botao.textContent = 'Adicionado!';
-        setTimeout(() => {
-          botao.textContent = textoOriginal;
-        }, 700);
-      });
-    });
-
-    // Envia para a página produto_mesa.html ao clicar no botão
-    btnEnviarMesa.addEventListener('click', () => {
-      if (pedidos.length === 0) {
-        alert('Adicione pelo menos um item ao pedido antes de enviar para a mesa.');
-        return;
-      }
-      localStorage.setItem('pedidoMesa', JSON.stringify(pedidos));
-      window.location.href = 'produto_mesa.html';
-    });
-
-    // Atualiza o resumo assim que a página carrega
-    atualizarResumo();
-  </script>
+  <script src="js/script.js"></script>
 
 </body>
 </html>

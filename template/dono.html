@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Área do Dono - Restaurante Sabor da Casa</title>
+</head>
+<body data-page="dono">
+
+  <header>
+    <h1>Restaurante Sabor da Casa</h1>
+    <nav>
+      <ul>
+        <li><a href="principal.html">Página Principal</a></li>
+        <li><a href="cliente.html">Cardápio</a></li>
+        <li><a href="cliente_pedidos.html">Meus Pedidos</a></li>
+        <li><a href="dono.html" aria-current="page">Pedidos e Cardápio</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <section>
+      <h2>Pedidos Recebidos</h2>
+
+      <table>
+        <caption>Itens solicitados pelos clientes</caption>
+        <thead>
+          <tr>
+            <th scope="col">Produto</th>
+            <th scope="col">Quantidade</th>
+            <th scope="col">Valor Unitário</th>
+            <th scope="col">Subtotal</th>
+          </tr>
+        </thead>
+        <tbody id="lista-pedidos-dono">
+          <!-- Os itens são inseridos pelo js/script.js -->
+        </tbody>
+        <tfoot>
+          <tr>
+            <th scope="row" colspan="3">Valor Total dos Pedidos</th>
+            <td id="valor-total-dono"><strong>R$ 0,00</strong></td>
+          </tr>
+        </tfoot>
+      </table>
+
+      <button type="button" id="btn-limpar-pedidos-dono">Finalizar e limpar pedidos</button>
+    </section>
+
+    <section>
+      <h2>Cadastrar novo prato</h2>
+      <p>Preencha o formulário para adicionar uma nova opção ao cardápio dos clientes.</p>
+
+      <form id="form-prato">
+        <p>
+          <label for="nome-prato">Nome do prato *</label><br>
+          <input type="text" id="nome-prato" name="nome" required minlength="3" maxlength="60">
+        </p>
+
+        <p>
+          <label for="descricao-prato">Descrição *</label><br>
+          <textarea id="descricao-prato" name="descricao" rows="3" cols="40" required minlength="10" maxlength="200"></textarea>
+        </p>
+
+        <p>
+          <label for="preco-prato">Preço (R$) *</label><br>
+          <input type="number" id="preco-prato" name="preco" min="0.01" max="500" step="0.01" required>
+        </p>
+
+        <p>
+          <label for="categoria-prato">Categoria *</label><br>
+          <select id="categoria-prato" name="categoria" required>
+            <option value="">Escolha uma categoria</option>
+            <option value="Entradas">Entradas</option>
+            <option value="Pratos principais">Pratos principais</option>
+            <option value="Sobremesas">Sobremesas</option>
+            <option value="Bebidas">Bebidas</option>
+          </select>
+        </p>
+
+        <p>
+          <button type="submit">Cadastrar prato no cardápio</button>
+        </p>
+      </form>
+
+      <p id="mensagem-form"></p>
+    </section>
+
+    <section>
+      <h2>Pratos do cardápio</h2>
+
+      <table>
+        <caption>Itens disponíveis para os clientes</caption>
+        <thead>
+          <tr>
+            <th scope="col">Produto</th>
+            <th scope="col">Categoria</th>
+            <th scope="col">Preço</th>
+            <th scope="col">Ações</th>
+          </tr>
+        </thead>
+        <tbody id="lista-cardapio-dono">
+          <!-- Os itens são inseridos pelo js/script.js -->
+        </tbody>
+      </table>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Restaurante Sabor da Casa</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+
+</body>
+</html>

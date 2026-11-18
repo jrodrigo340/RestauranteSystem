@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meus Pedidos - Restaurante Sabor da Casa</title>
+</head>
+<body data-page="pedidos">
+
+  <header>
+    <h1>Restaurante Sabor da Casa</h1>
+    <nav>
+      <ul>
+        <li><a href="principal.html">Página Principal</a></li>
+        <li><a href="cliente.html">Cardápio</a></li>
+        <li><a href="cliente_pedidos.html" aria-current="page">Meus Pedidos</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>Resumo do Pedido</h2>
+
+      <table>
+        <caption>Itens solicitados</caption>
+        <thead>
+          <tr>
+            <th scope="col">Produto</th>
+            <th scope="col">Quantidade</th>
+            <th scope="col">Valor Unitário</th>
+            <th scope="col">Subtotal</th>
+          </tr>
+        </thead>
+        <tbody id="lista-pedidos">
+          <!-- Os itens são inseridos pelo js/script.js -->
+        </tbody>
+        <tfoot>
+          <tr>
+            <th scope="row" colspan="3">Valor Total do Pedido</th>
+            <td id="valor-total"><strong>R$ 0,00</strong></td>
+          </tr>
+        </tfoot>
+      </table>
+
+      <p>
+        <a href="cliente.html">Voltar ao cardápio</a>
+        <button type="button" id="btn-limpar">Limpar pedido</button>
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Restaurante Sabor da Casa</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+
+</body>
+</html>

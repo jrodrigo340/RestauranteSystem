@@ -16,6 +16,9 @@
         <li><a href="pedido_mesa.html" aria-current="page">Pedido da Mesa</a></li>
         <li><a href="cadastro.html">Cadastro</a></li>
         <li><a href="sobre.html">Sobre</a></li>
+        <li>
+          <a href="https://github.com/jrodrigo340/RestauranteSystem" target="_blank" rel="noopener noreferrer">GitHub do projeto</a>
+        </li>
       </ul>
     </nav>
   </header>
@@ -55,51 +58,7 @@
     <p>&copy; 2026 Restaurante Sabor da Casa</p>
   </footer>
 
-  <script>
-    const listaPedidos = document.getElementById('lista-pedidos');
-    const campoTotal = document.getElementById('valor-total');
-    const btnLimpar = document.getElementById('btn-limpar');
-
-    function formatarMoeda(valor) {
-      return valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-    }
-
-    function carregarPedidos() {
-      const pedidos = JSON.parse(localStorage.getItem('pedidoMesa')) || [];
-      listaPedidos.innerHTML = '';
-
-      if (pedidos.length === 0) {
-        listaPedidos.innerHTML = '<tr><td colspan="4">Nenhum pedido registrado para esta mesa.</td></tr>';
-        campoTotal.innerHTML = '<strong>R$ 0,00</strong>';
-        return;
-      }
-
-      let totalGeral = 0;
-
-      pedidos.forEach((item) => {
-        const subtotal = item.preco * item.quantidade;
-        totalGeral += subtotal;
-
-        const linha = document.createElement('tr');
-        linha.innerHTML = `
-          <td>${item.nome}</td>
-          <td>${item.quantidade}</td>
-          <td>${formatarMoeda(item.preco)}</td>
-          <td>${formatarMoeda(subtotal)}</td>
-        `;
-        listaPedidos.appendChild(linha);
-      });
-
-      campoTotal.innerHTML = `<strong>${formatarMoeda(totalGeral)}</strong>`;
-    }
-
-    btnLimpar.addEventListener('click', () => {
-      localStorage.removeItem('pedidoMesa');
-      carregarPedidos();
-    });
-
-    carregarPedidos();
-  </script>
+  <script src="js/script.js"></script>
 
 </body>
 </html>

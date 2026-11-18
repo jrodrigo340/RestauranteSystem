@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cardápio do Cliente - Restaurante Sabor da Casa</title>
+</head>
+<body data-page="cardapio">
+
+  <header>
+    <h1>Restaurante Sabor da Casa</h1>
+    <nav>
+      <ul>
+        <li><a href="principal.html">Página Principal</a></li>
+        <li><a href="cliente.html" aria-current="page">Cardápio</a></li>
+        <li><a href="cliente_pedidos.html">Meus Pedidos</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>Cardápio</h2>
+      <p>Clique em "Adicionar ao pedido" para incluir um prato.</p>
+
+      <!-- Os pratos são carregados pelo js/script.js a partir do cardápio salvo -->
+      <div id="cardapio"></div>
+
+      <div class="acoes-pedido">
+        <p id="status-pedido">Itens selecionados: 0 | Total: R$ 0,00</p>
+        <a href="cliente_pedidos.html">Ver pedidos</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Restaurante Sabor da Casa</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+
+</body>
+</html>
