@@ -1,0 +1,130 @@
+/* ==========================================
+   VARIÁVEIS E CONFIGURAÇÕES GLOBAIS
+   ========================================== */
+:root {
+  --vermelho-natal: #8b0000;      /* Vermelho escuro/vinho elegante */
+  --vermelho-vivo: #c41e3a;       /* Vermelho Natal clássico */
+  --verde-pinheiro: #1b4d3e;      /* Verde suave de pinheiro */
+  --dourado: #d4af37;             /* Dourado para detalhes */
+  --branco-neve: #faf9f6;         /* Fundo levemente off-white */
+  --cinza-escuro: #2c2c2c;        /* Texto principal */
+  --cinza-claro: #f0ede6;         /* Fundo de cards */
+  --sombra-suave: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --transicao: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--branco-neve);
+  color: var(--cinza-escuro);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================
+   ESTRUTURA PRINCIPAL (<main> e <section>)
+   ========================================== */
+main {
+  flex: 1;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  display: flex;
+  align-items: center;
+}
+
+section {
+  width: 100%;
+  background: #fff;
+  border-radius: 12px;
+  padding: 2.5rem 2rem;
+  box-shadow: var(--sombra-suave);
+  border-top: 4px solid var(--verde-pinheiro);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+h2 {
+  grid-column: 1 / -1;
+  color: var(--vermelho-vivo);
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+/* ==========================================
+   CARDS DE ACESSO (<article>)
+   ========================================== */
+article {
+  background-color: var(--cinza-claro);
+  border-left: 4px solid var(--vermelho-vivo);
+  padding: 1.5rem;
+  border-radius: 0 8px 8px 0;
+  transition: var(--transicao);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+article:hover {
+  transform: translateY(-4px);
+  background-color: #eae5dc;
+  box-shadow: var(--sombra-suave);
+}
+
+article h3 {
+  color: var(--verde-pinheiro);
+  font-size: 1.35rem;
+  margin-bottom: 0.75rem;
+  border-bottom: 2px solid rgba(27, 77, 62, 0.15);
+  padding-bottom: 0.4rem;
+}
+
+article p {
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+  color: var(--cinza-escuro);
+}
+
+/* ==========================================
+   BOTÕES DE ENTRADA (<a>)
+   ========================================== */
+article a {
+  display: inline-block;
+  align-self: flex-start;
+  background-color: var(--vermelho-vivo);
+  color: #fff;
+  text-decoration: none;
+  padding: 0.6rem 1.3rem;
+  border-radius: 20px;
+  font-weight: 500;
+  transition: var(--transicao);
+}
+
+article a:hover {
+  background-color: var(--dourado);
+  color: #1a1a1a;
+  transform: translateY(-2px);
+}
+
+/* ==========================================
+   RODAPÉ (<footer>)
+   ========================================== */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  background-color: var(--verde-pinheiro);
+  color: #fff;
+  font-size: 0.9rem;
+  border-top: 3px solid var(--dourado);
+}

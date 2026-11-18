@@ -170,4 +170,4 @@ Se você enviou uma senha por engano, **avise o coordenador na hora**. Apagar o 
 5. Confira o `git status` antes de cada commit.
 6. Dê `git pull` antes do `git push`.
 7. Abra um Pull Request pequeno e explique como testar.
-8. Deu conflito ou dúvida? Pare e pergunte.
+8. Deu conflito ou dúvida? Pare e pergunte!
