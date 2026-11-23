@@ -1,0 +1,264 @@
+/* ==========================================
+   VARIÁVEIS E CONFIGURAÇÕES GLOBAIS
+   ========================================== */
+:root {
+  --vermelho-natal: #8b0000;      /* Vermelho escuro/vinho elegante */
+  --vermelho-vivo: #c41e3a;       /* Vermelho Natal clássico */
+  --verde-pinheiro: #1b4d3e;      /* Verde suave de pinheiro */
+  --dourado: #d4af37;             /* Dourado para detalhes */
+  --branco-neve: #faf9f6;         /* Fundo levemente off-white */
+  --cinza-escuro: #2c2c2c;        /* Texto principal */
+  --cinza-claro: #f0ede6;         /* Fundo de cards */
+  --sombra-suave: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --transicao: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--branco-neve);
+  color: var(--cinza-escuro);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================
+   CABEÇALHO E NAVEGAÇÃO
+   ========================================== */
+header {
+  background: linear-gradient(135deg, var(--vermelho-natal), var(--vermelho-vivo));
+  color: #fff;
+  padding: 2rem 1rem;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-bottom: 4px solid var(--dourado);
+}
+
+header h1 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 1.1rem;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.15);
+  transition: var(--transicao);
+  font-weight: 500;
+  display: inline-block;
+}
+
+nav a:hover,
+nav a[aria-current="page"] {
+  background-color: var(--dourado);
+  color: #1a1a1a;
+  transform: translateY(-2px);
+}
+
+/* ==========================================
+   ESTRUTURA PRINCIPAL (<main>)
+   ========================================== */
+main {
+  flex: 1;
+  width: 100%;
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+main > section {
+  background: #fff;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--sombra-suave);
+  border-top: 4px solid var(--verde-pinheiro);
+}
+
+main > section > h2 {
+  color: var(--vermelho-vivo);
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+main > section > p {
+  text-align: center;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+/* ==========================================
+   CATEGORIAS E PRATOS GERADOS PELO JS (#cardapio)
+   ========================================== */
+#cardapio section {
+  margin-bottom: 2rem;
+}
+
+#cardapio h3 {
+  color: var(--verde-pinheiro);
+  font-size: 1.35rem;
+  margin: 1.5rem 0 1rem 0;
+  border-bottom: 2px solid var(--dourado);
+  padding-bottom: 0.35rem;
+}
+
+#cardapio article {
+  background-color: var(--cinza-claro);
+  border-left: 4px solid var(--vermelho-vivo);
+  padding: 1.1rem 1.3rem;
+  margin-bottom: 1rem;
+  border-radius: 0 8px 8px 0;
+  transition: var(--transicao);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+#cardapio article:hover {
+  transform: translateX(4px);
+  background-color: #eae5dc;
+}
+
+#cardapio article h4 {
+  color: var(--vermelho-natal);
+  font-size: 1.15rem;
+}
+
+#cardapio article p {
+  font-size: 0.95rem;
+  color: var(--cinza-escuro);
+}
+
+/* Segundo <p> gerado pelo JS: Preço */
+#cardapio article p:nth-of-type(2) {
+  font-weight: bold;
+  color: var(--verde-pinheiro);
+  font-size: 1.05rem;
+  margin-top: 0.2rem;
+}
+
+/* Botão "Adicionar ao pedido" gerado pelo JS */
+#cardapio article button {
+  align-self: flex-start;
+  margin-top: 0.5rem;
+  background-color: var(--verde-pinheiro);
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transicao);
+}
+
+#cardapio article button:hover {
+  background-color: var(--vermelho-vivo);
+  transform: translateY(-1px);
+}
+
+#cardapio article button:active {
+  transform: scale(0.98);
+}
+
+/* ==========================================
+   BARRA DE RESUMO E AÇÃO (.acoes-pedido)
+   ========================================== */
+.acoes-pedido {
+  margin-top: 2rem;
+  padding: 1.2rem 1.5rem;
+  background-color: var(--verde-pinheiro);
+  color: #fff;
+  border-radius: 10px;
+  border-left: 5px solid var(--dourado);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  box-shadow: var(--sombra-suave);
+}
+
+#status-pedido {
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.acoes-pedido a {
+  background-color: var(--dourado);
+  color: #1a1a1a;
+  text-decoration: none;
+  padding: 0.6rem 1.4rem;
+  border-radius: 20px;
+  font-weight: 700;
+  transition: var(--transicao);
+}
+
+.acoes-pedido a:hover {
+  background-color: #fff;
+  transform: translateY(-2px);
+}
+
+/* ==========================================
+   RODAPÉ
+   ========================================== */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  background-color: var(--verde-pinheiro);
+  color: #fff;
+  font-size: 0.9rem;
+  border-top: 3px solid var(--dourado);
+  margin-top: auto;
+}
+
+/* ==========================================
+   RESPONSIVIDADE PARA CELULARES
+   ========================================== */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1.8rem;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  main > section {
+    padding: 1.3rem;
+  }
+
+  #cardapio article button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .acoes-pedido {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .acoes-pedido a {
+    width: 100%;
+  }
+}

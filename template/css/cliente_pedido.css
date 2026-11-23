@@ -1,0 +1,273 @@
+/* ==========================================
+   VARIÁVEIS E CONFIGURAÇÕES GLOBAIS
+   ========================================== */
+:root {
+  --vermelho-natal: #8b0000;      /* Vermelho escuro/vinho elegante */
+  --vermelho-vivo: #c41e3a;       /* Vermelho Natal clássico */
+  --verde-pinheiro: #1b4d3e;      /* Verde suave de pinheiro */
+  --dourado: #d4af37;             /* Dourado para detalhes */
+  --branco-neve: #faf9f6;         /* Fundo levemente off-white */
+  --cinza-escuro: #2c2c2c;        /* Texto principal */
+  --cinza-claro: #f0ede6;         /* Fundo de cards e linhas alternadas */
+  --sombra-suave: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --transicao: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--branco-neve);
+  color: var(--cinza-escuro);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================
+   CABEÇALHO E NAVEGAÇÃO
+   ========================================== */
+header {
+  background: linear-gradient(135deg, var(--vermelho-natal), var(--vermelho-vivo));
+  color: #fff;
+  padding: 2rem 1rem;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-bottom: 4px solid var(--dourado);
+}
+
+header h1 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 1.1rem;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.15);
+  transition: var(--transicao);
+  font-weight: 500;
+  display: inline-block;
+}
+
+nav a:hover,
+nav a[aria-current="page"] {
+  background-color: var(--dourado);
+  color: #1a1a1a;
+  transform: translateY(-2px);
+}
+
+/* ==========================================
+   ESTRUTURA PRINCIPAL (<main>)
+   ========================================== */
+main {
+  flex: 1;
+  width: 100%;
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+section {
+  background: #fff;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--sombra-suave);
+  border-top: 4px solid var(--verde-pinheiro);
+}
+
+section h2 {
+  color: var(--vermelho-vivo);
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* ==========================================
+   TABELA DE PEDIDOS
+   ========================================== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.8rem;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--sombra-suave);
+}
+
+caption {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--verde-pinheiro);
+  margin-bottom: 0.75rem;
+  text-align: left;
+}
+
+thead th {
+  background-color: var(--verde-pinheiro);
+  color: #fff;
+  font-weight: 600;
+  padding: 0.9rem 1rem;
+  text-align: left;
+  letter-spacing: 0.4px;
+}
+
+tbody td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--cinza-claro);
+}
+
+/* Alinha colunas numéricas (Quantidade, Unitário, Subtotal) */
+thead th:nth-child(n+2),
+tbody td:nth-child(n+2) {
+  text-align: right;
+}
+
+/* Centraliza a mensagem quando não há pedidos (td com colspan="4") */
+tbody td[colspan] {
+  text-align: center;
+  color: #666;
+  font-style: italic;
+  padding: 1.5rem 1rem;
+}
+
+tbody tr:nth-child(even) {
+  background-color: var(--branco-neve);
+}
+
+tbody tr:hover {
+  background-color: var(--cinza-claro);
+}
+
+/* Rodapé da tabela (Valor Total) */
+tfoot tr {
+  background-color: var(--cinza-claro);
+  border-top: 2px solid var(--dourado);
+}
+
+tfoot th {
+  padding: 1rem;
+  text-align: right;
+  color: var(--cinza-escuro);
+  font-size: 1.05rem;
+}
+
+#valor-total {
+  padding: 1rem;
+  text-align: right;
+  color: var(--vermelho-natal);
+  font-size: 1.2rem;
+}
+
+/* ==========================================
+   BOTÕES DE AÇÃO (Voltar e Limpar Pedido)
+   ========================================== */
+section > p {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+section > p a {
+  background-color: var(--verde-pinheiro);
+  color: #fff;
+  text-decoration: none;
+  padding: 0.65rem 1.4rem;
+  border-radius: 20px;
+  font-weight: 600;
+  transition: var(--transicao);
+}
+
+section > p a:hover {
+  background-color: var(--dourado);
+  color: #1a1a1a;
+  transform: translateY(-2px);
+}
+
+#btn-limpar {
+  background-color: var(--vermelho-vivo);
+  color: #fff;
+  border: none;
+  padding: 0.65rem 1.4rem;
+  border-radius: 20px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transicao);
+}
+
+#btn-limpar:hover {
+  background-color: var(--vermelho-natal);
+  transform: translateY(-2px);
+}
+
+#btn-limpar:active {
+  transform: scale(0.98);
+}
+
+/* ==========================================
+   RODAPÉ
+   ========================================== */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  background-color: var(--verde-pinheiro);
+  color: #fff;
+  font-size: 0.9rem;
+  border-top: 3px solid var(--dourado);
+  margin-top: auto;
+}
+
+/* ==========================================
+   RESPONSIVIDADE PARA CELULARES
+   ========================================== */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1.8rem;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  section {
+    padding: 1.3rem;
+  }
+
+  table {
+    display: block;
+    overflow-x: auto;
+  }
+
+  section > p {
+    flex-direction: column;
+  }
+
+  section > p a,
+  #btn-limpar {
+    width: 100%;
+    text-align: center;
+  }
+}

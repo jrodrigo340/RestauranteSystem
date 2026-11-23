@@ -63,8 +63,27 @@
     }
   ];
 
+  function emCentavos(valor) {
+    var numero = Number(valor);
+    if (!Number.isFinite(numero)) {
+      return 0;
+    }
+    return Math.round((numero + Number.EPSILON) * 100);
+  }
+
+  function emReais(centavos) {
+    var numero = Number(centavos);
+    if (!Number.isFinite(numero)) {
+      return 'R$ 0,00';
+    }
+    return (numero / 100).toLocaleString('pt-BR', {
+      style: 'currency',
+      currency: 'BRL'
+    });
+  }
+
   function formatarMoeda(valor) {
-    return valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    return emReais(emCentavos(valor));
   }
 
   function obterCardapio() {
