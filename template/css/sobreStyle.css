@@ -1,4 +1,18 @@
-/* --- RESET E CONFIGURAÇÕES GLOBAIS --- */
+/* ==========================================
+   VARIÁVEIS E CONFIGURAÇÕES GLOBAIS
+   ========================================== */
+:root {
+  --vermelho-natal: #8b0000;      /* Vermelho escuro/vinho elegante */
+  --vermelho-vivo: #c41e3a;       /* Vermelho Natal clássico */
+  --verde-pinheiro: #1b4d3e;      /* Verde suave de pinheiro */
+  --dourado: #d4af37;             /* Dourado para detalhes */
+  --branco-neve: #faf9f6;         /* Fundo levemente off-white */
+  --cinza-escuro: #2c2c2c;        /* Texto principal */
+  --cinza-claro: #f0ede6;         /* Fundo de cards e bordas suaves */
+  --sombra-suave: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --transicao: all 0.3s ease;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -7,26 +21,28 @@
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f7f9f6; /* Tom leve e acolhedor (Off-white esverdeado) */
-  color: #2c3e35;            /* Texto em verde escuro suave */
+  background-color: var(--branco-neve);
+  color: var(--cinza-escuro);
   line-height: 1.6;
 }
 
-/* --- CABEÇALHO (HEADER & NAV) --- */
+/* ==========================================
+   CABEÇALHO (HEADER & NAV)
+   ========================================== */
 header {
-  background: linear-gradient(135deg, #1b3b2b 0%, #0d1e15 100%); /* Verde natalino profundo */
-  color: #fcf8f2;
+  background: linear-gradient(135deg, var(--vermelho-natal), var(--vermelho-vivo));
+  color: #fff;
   padding: 2rem 1rem;
   text-align: center;
-  border-bottom: 4px solid #d4af37; /* Linha de destaque dourada */
+  border-bottom: 4px solid var(--dourado);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 header h1 {
   font-size: 2.2rem;
   margin-bottom: 1rem;
-  color: #f3e5ab; /* Dourado claro suave */
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+  color: #fff;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
   letter-spacing: 1px;
 }
 
@@ -40,24 +56,28 @@ nav ul {
 }
 
 nav a {
-  color: #e6dfcc;
+  color: #fff;
   text-decoration: none;
   padding: 8px 16px;
   border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.15);
   font-weight: 500;
-  transition: all 0.3s ease;
+  transition: var(--transicao);
   border: 1px solid transparent;
 }
 
 nav a:hover,
 nav a[aria-current="page"] {
-  background-color: #d4af37; /* Dourado */
-  color: #1b3b2b;           /* Texto escuro no fundo dourado */
-  border-color: #f3e5ab;
+  background-color: var(--dourado);
+  color: #1a1a1a;
+  border-color: #fff;
+  transform: translateY(-2px);
   box-shadow: 0 2px 8px rgba(212, 175, 55, 0.4);
 }
 
-/* --- CONTEÚDO PRINCIPAL (MAIN) --- */
+/* ==========================================
+   CONTEÚDO PRINCIPAL (MAIN)
+   ========================================== */
 main {
   max-width: 900px;
   margin: 40px auto;
@@ -69,19 +89,19 @@ section {
   border-radius: 12px;
   padding: 30px;
   margin-bottom: 30px;
-  box-shadow: 0 6px 18px rgba(27, 59, 43, 0.06);
-  border-top: 4px solid #d4af37; /* Detalhe dourado no topo de cada seção */
+  box-shadow: var(--sombra-suave);
+  border-top: 4px solid var(--verde-pinheiro);
 }
 
 section h2 {
-  color: #1b3b2b;
+  color: var(--vermelho-vivo);
   font-size: 1.8rem;
   margin-bottom: 20px;
   position: relative;
   padding-bottom: 8px;
 }
 
-/* Pequeno detalhe decorativo abaixo do título da seção */
+/* Detalhe decorativo dourado abaixo do título da seção */
 section h2::after {
   content: '';
   position: absolute;
@@ -89,28 +109,32 @@ section h2::after {
   bottom: 0;
   width: 50px;
   height: 3px;
-  background-color: #d4af37;
+  background-color: var(--dourado);
   border-radius: 2px;
 }
 
 section p {
   margin-bottom: 15px;
-  color: #4a5c53;
+  color: var(--cinza-escuro);
   font-size: 1.05rem;
 }
 
-/* --- IMAGEM DA HISTÓRIA --- */
+/* ==========================================
+   IMAGEM DA HISTÓRIA
+   ========================================== */
 section img {
   width: 100%;
   max-height: 400px;
   object-fit: cover;
   border-radius: 8px;
   margin-top: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-  border: 2px solid #f0e6d2;
+  box-shadow: var(--sombra-suave);
+  border: 2px solid var(--cinza-claro);
 }
 
-/* --- TABELA DA EQUIPE --- */
+/* ==========================================
+   TABELA DA EQUIPE
+   ========================================== */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -118,12 +142,12 @@ table {
   background-color: #fff;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  box-shadow: var(--sombra-suave);
 }
 
 caption {
   font-size: 0.95rem;
-  color: #6c7d73;
+  color: var(--cinza-escuro);
   margin-bottom: 10px;
   text-align: left;
   font-style: italic;
@@ -135,8 +159,8 @@ th, td {
 }
 
 thead {
-  background-color: #1b3b2b;
-  color: #f3e5ab;
+  background-color: var(--verde-pinheiro);
+  color: #fff;
 }
 
 th {
@@ -145,30 +169,34 @@ th {
 }
 
 tbody tr {
-  border-bottom: 1px solid #edf2ec;
+  border-bottom: 1px solid var(--cinza-claro);
   transition: background-color 0.2s;
 }
 
 tbody tr:nth-child(even) {
-  background-color: #fdfbf7; /* Tom levemente aquecido alternado */
+  background-color: var(--branco-neve);
 }
 
 tbody tr:hover {
-  background-color: #f4efdf; /* Dourado bem suave ao passar o mouse */
+  background-color: var(--cinza-claro);
 }
 
-/* --- RODAPÉ --- */
+/* ==========================================
+   RODAPÉ
+   ========================================== */
 footer {
-  background-color: #142b1f;
-  color: #d1dcd5;
+  background-color: var(--verde-pinheiro);
+  color: #fff;
   text-align: center;
   padding: 20px;
   font-size: 0.9rem;
-  border-top: 2px solid #d4af37;
+  border-top: 3px solid var(--dourado);
   margin-top: 60px;
 }
 
-/* --- RESPONSIVIDADE PARA CELULARES --- */
+/* ==========================================
+   RESPONSIVIDADE PARA CELULARES
+   ========================================== */
 @media (max-width: 600px) {
   header h1 {
     font-size: 1.8rem;
