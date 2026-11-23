@@ -171,3 +171,5 @@ Se você enviou uma senha por engano, **avise o coordenador na hora**. Apagar o 
 6. Dê `git pull` antes do `git push`.
 7. Abra um Pull Request pequeno e explique como testar.
 8. Deu conflito ou dúvida? Pare e pergunte!
+9. <img width="1174" height="482" alt="Captura de tela 2026-11-18 184524" src="https://github.com/user-attachments/assets/2231295b-57fe-4305-b857-b36a8b53a224" />
+<img width="1599" height="766" alt="Captura de tela 2026-11-18 184515" src="https://github.com/user-attachments/assets/d2cf75bc-eab8-45f5-914d-2550db9167bf" />
